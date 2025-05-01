@@ -2,7 +2,7 @@
 
 <br>
 
-Live demo - [https://internship-quiz-app-1-neon.vercel.app](https://internship-quiz-app-1-neon.vercel.app)
+Live demo - [https://internship-taskana-app-1.vercel.app](https://internship-taskana-app-1.vercel.app)
 
 <br>
 
