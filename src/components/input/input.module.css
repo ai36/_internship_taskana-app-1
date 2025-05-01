@@ -1,0 +1,92 @@
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-sm);
+    
+    position: relative;
+
+    .text {
+        font: var(--font-heading-h3);
+
+        &::after {
+            content: '*';
+            margin-left: 4px;
+            color: var(--primary-400);
+            font: var(--body-lg-r);
+        }
+    }
+    
+    .input {
+        font: var(--body-lg-r);
+        background-color: unset;
+        color: var(--neutral-400);
+        
+        border: 1px solid currentColor;
+        border-radius: var(--size-s);
+        
+        padding: var(--size-m) var(--size-xxml) var(--size-m) var(--size-sm);
+        
+        transition: var(--transition);
+
+        &::placeholder {
+            color: var(--neutral-600);
+        }
+
+        &:hover {
+            color: var(--neutral-600);
+        }
+        
+        &:not(:placeholder-shown) {
+            color: var(--neutral-800);
+            border-color: var(--neutral-400);
+        }
+        
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-800);
+            border-color: transparent;
+            caret-color: var(--neutral-800);
+            color: var(--neutral-800);
+        }
+    }
+
+    .close {
+        position: absolute;
+        bottom: var(--size-m);
+        right: var(--size-sm);
+        translate: -1px -1px;
+        transition: var(--transition);
+        
+        border-radius: var(--size-xs);
+
+        height: var(--size-l);
+        aspect-ratio: 1;
+        padding: 0;
+
+        color: var(--neutral-500);
+
+        display: none;
+
+        &:hover {
+            color: var(--neutral-800);
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-800);
+        }
+
+        &>svg{
+            transition: var(--transition);
+        }
+    }
+
+    .input:focus+.close {
+        display: flex;
+    }
+
+    .input:not(:placeholder-shown)+.close {
+        display: flex;
+    }
+
+}

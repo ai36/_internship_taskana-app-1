@@ -1,0 +1,3 @@
+.illustration path {
+    transition: var(--transition);
+}

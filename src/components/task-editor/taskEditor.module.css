@@ -1,0 +1,98 @@
+.taskEditor {
+    background-color: var(--neutral-100);
+    border-left: 1px solid var(--neutral-300);
+        
+    position: fixed;
+    left: 100%;
+    top: 64px;
+    translate: 0 0;
+    z-index: 1;
+
+    transition: var(--transition), translate .4s;
+
+    display: grid;
+    grid-template-rows: 1fr 81px;
+    width: 400px;
+    height: calc(100dvh - var(--size-xxxl));
+
+    .main {
+        overflow-y: auto;
+
+        .header {
+            background-color: var(--neutral-100);
+            
+            position: sticky;
+            top: 0;
+            z-index: 2;
+
+            padding: var(--size-l);
+            padding-bottom: var(--size-ml);
+            display: flex;
+            flex-direction: column;
+            gap: var(--size-l);
+
+            transition: var(--transition), translate var(--transition-duration);
+    
+            .title {
+                font: var(--font-heading-h1);
+            }
+        }
+
+        .priorityBox {
+            display: grid;
+            grid-template-columns: 107px 1fr;
+            align-items: center;
+            gap: var(--size-m);
+
+            height: 40px;
+            padding: var(--size-l);
+            padding-top: 0px;
+            margin-top: var(--size-xs);
+
+            font: var(--font-heading-h3);
+
+            position: relative;
+
+            .label {
+                position: absolute;
+                left: var(--size-l);
+                top: 50%;
+                translate: 0 -50%;
+            }
+
+            .buttons {
+                border-radius: var(--size-s);
+                outline: none;
+
+                display: flex;
+                gap: var(--size-s);
+
+                position: absolute;
+                left: calc(var(--size-l) + 91px + var(--size-m));
+                z-index: 1;
+
+                &:has(:focus-visible) {
+                    box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-base);
+                }
+            }
+        }
+    }
+
+    .footer {
+        padding: var(--size-m) var(--size-l);
+        border-top: 1px solid var(--neutral-300);
+
+        transition: var(--transition);
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: var(--size-m);
+        }
+    }
+
+    &[shown="true"] {
+        translate: -400px 0;
+    }
+}
+
