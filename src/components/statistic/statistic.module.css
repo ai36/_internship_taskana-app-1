@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-l);
+    min-height: 100%;
+}
+
+.desc {
+    text-align: center;
+    color: var(--neutral-800);
+    margin: 0;
+
+    transition: var(--transition);
+}

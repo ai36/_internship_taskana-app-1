@@ -1,0 +1,94 @@
+.taskItem {
+    padding: var(--size-s);
+    padding-left: var(--size-m);
+    border-radius: var(--size-s);
+
+    color: var(--neutral-800);
+    font: var(--body-lg-r);
+
+    transition: var(--transition);
+
+    &:hover {
+        background-color: var(--neutral-100);
+        box-shadow: var(--box-shadow-sm);
+    }
+
+    &:focus-visible {
+        background-color: var(--neutral-100);
+        outline: none;
+        box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-sm);
+    }
+
+    .task {
+        display: grid;
+        grid-template-columns: var(--size-l) 1fr;
+        align-items: top;
+        gap: var(--size-m);
+        padding-block: var(--size-s);
+
+        .text {
+            margin: 0;
+            padding: 0;
+
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        &>svg {
+            height: var(--size-l);
+            aspect-ratio: 1;
+            color: var(--neutral-400);
+            transition: var(--transition);
+
+            &:hover {
+                color: var(--neutral-800);
+            }
+
+            &:focus-visible {
+                outline: none;
+                color: var(--neutral-800);
+                box-shadow: 0 0 0 var(--size-xs) var(--neutral-400);
+                border-radius: 5px;
+            }
+        }
+    }
+
+
+    &[data-priority="2"] {
+        .task {
+            &>svg {
+                color: var(--secondary-300);
+
+                &:hover {
+                    color: var(--secondary-500);
+                }
+
+                &:focus-visible {
+                    outline: none;
+                    color: var(--secondary-500);
+                    box-shadow: 0 0 0 var(--size-xs) var(--secondary-100);
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    &[data-priority="3"] {
+        .task {
+            &>svg {
+                color: var(--primary-300);
+
+                &:hover {
+                    color: var(--primary-500);
+                }
+
+                &:focus-visible {
+                    outline: none;
+                    color: var(--primary-500);
+                    box-shadow: 0 0 0 var(--size-xs) var(--primary-100);
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+input, button {
+    font: inherit;
+}
+
+button {
+    background-color: unset;
+    border: 0;
+    color: inherit;
+    fill: currentColor;
+    cursor: pointer;
+}
+
+ul,li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+a, svg {
+    color: inherit;
+    fill: currentColor
+}
+
+img {
+    display: block;
+}
+
+address {
+    font-style: unset;
+}
+
+p {
+    margin: 0;
+}
+
+:hover {
+    transition: .2s;
+}

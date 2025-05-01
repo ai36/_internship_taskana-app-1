@@ -1,0 +1,15 @@
+.loading {
+    fill: none;
+
+    rotate: 0deg;
+    animation: spinner .6s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}

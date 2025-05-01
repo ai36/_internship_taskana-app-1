@@ -1,0 +1,38 @@
+@import url(/src/assets/reset.css);
+@import url(/src/assets/variables.css);
+
+@font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(@assets/fonts/sourcesans3-regular.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3wsaZejZ5HZV8ZRx.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(@assets/fonts/sourcesans3-semibold.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3wsaZejZ5HZV8ZRx.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(@assets/fonts/sourcesans3-bold.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesans3/v18/nwpStKy2OAdR1K-IwhWudF-R3wsaZejZ5HZV8ZRx.woff2) format('woff2');
+}
+
+body {
+    font: var(--body-md-r);
+}
+
+[data-theme=dark] {
+    color-scheme: dark;
+}
+
+[data-theme=light] {
+    color-scheme: light;
+}

@@ -1,0 +1,13 @@
+.navbar {
+    grid-area: 1/1/-1/2;
+
+    height: calc(100dvh - 64px);
+    overflow-y: auto;
+
+    padding: var(--size-l) calc(var(--size-m) - 1px) var(--size-l) var(--size-m);
+
+    transition: var(--transition);
+
+    background: var(--neutral-100);
+    border-right: 1px solid var(--neutral-300);
+}

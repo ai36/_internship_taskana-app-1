@@ -1,0 +1,16 @@
+.logoLink {
+    display: flex;
+    align-items: center;
+    
+    margin-right: auto;
+
+    background-color: var(--base-black);
+    border-radius: var(--size-s);
+
+    transition: var(--transition);
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 6px var(--base-black), 0 0 0 8px var(--base-white), var(--box-shadow-base);
+    }
+}
