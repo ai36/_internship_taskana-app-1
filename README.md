@@ -11,7 +11,7 @@ Live demo - [https://internship-taskana-app-1.vercel.app](https://internship-tas
 ```shell
 npm install
 ```
-или
+or
 ```shell
 npm i
 ```
