@@ -8,10 +8,10 @@
     padding: 0;
 
     border-radius: var(--size-s);
-
+    cursor: pointer;
     color: var(--neutral-600);
 
-    transition: var(--transition);
+    transition: background-color var(--transition-duration), color var(--transition-duration), box-shadow    var(--transition-duration);
 
     &:hover {
         background-color: var(--neutral-300);
@@ -29,6 +29,11 @@
         background-color: var(--neutral-200);
         outline: none;
         box-shadow: var(--box-shadow-sm);
+        cursor: default;
+    }
+
+    &:has(:checked:focus-visible) {
+        box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-base);
     }
 
     .radio {
@@ -37,7 +42,7 @@
     }
 
     svg {
-        transition: var(--transition);
+        transition: fill var(--transition-duration);
     }
 }
 
@@ -46,7 +51,7 @@
 
     &:hover {
         background-color: var(--secondary-100);
-    }   
+    }
 
     &:focus-visible {
         background-color: var(--secondary-100);

@@ -1,14 +1,14 @@
 .taskEditor {
     background-color: var(--neutral-100);
     border-left: 1px solid var(--neutral-300);
-        
+
     position: fixed;
     left: 100%;
     top: 64px;
     translate: 0 0;
     z-index: 1;
 
-    transition: var(--transition), translate .4s;
+    transition: background-color var(--transition-duration), border-color var(--transition-duration), translate .4s;
 
     display: grid;
     grid-template-rows: 1fr 81px;
@@ -20,19 +20,19 @@
 
         .header {
             background-color: var(--neutral-100);
-            
+
             position: sticky;
             top: 0;
             z-index: 2;
 
             padding: var(--size-l);
-            padding-bottom: var(--size-ml);
+            padding-bottom: var(--size-m);
             display: flex;
             flex-direction: column;
             gap: var(--size-l);
 
-            transition: var(--transition), translate var(--transition-duration);
-    
+            transition: color var(--transition-duration), background-color var(--transition-duration), translate .4s;
+
             .title {
                 font: var(--font-heading-h1);
             }
@@ -47,11 +47,14 @@
             height: 40px;
             padding: var(--size-l);
             padding-top: 0px;
-            margin-top: var(--size-xs);
+            margin-top: var(--size-s);
 
             font: var(--font-heading-h3);
 
+            translate: 0 -2px;
             position: relative;
+
+            transition: color var(--transition-duration);
 
             .label {
                 position: absolute;
@@ -70,10 +73,6 @@
                 position: absolute;
                 left: calc(var(--size-l) + 91px + var(--size-m));
                 z-index: 1;
-
-                &:has(:focus-visible) {
-                    box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-base);
-                }
             }
         }
     }
@@ -82,12 +81,66 @@
         padding: var(--size-m) var(--size-l);
         border-top: 1px solid var(--neutral-300);
 
-        transition: var(--transition);
+        transition: background-color var(--transition-duration), border-color var(--transition-duration);
 
         .buttons {
             display: flex;
             align-items: center;
             gap: var(--size-m);
+
+            .saveButtonWarning {
+                outline-color: var(--neutral-900);
+            }
+
+            > li:has(.trash) {
+                margin-left: auto;
+            }
+
+            .trash {
+                width: var(--size-xxml);
+                height: var(--size-xxml);
+                padding: var(--size-sm);
+
+                color: var(--primary-400);
+                background-color: var(--neutral-200);
+
+                transition: color var(--transition-duration), fill var(--transition-duration), background-color var(--transition-duration), box-shadow var(--transition-duration);
+
+                &:not(:is([disabled], [loading], :active)):hover {
+                    color: light-dark(var(--neutral-0),var(--neutral-800));
+                    background-color: var(--primary-400);
+                    box-shadow: var(--box-shadow-sm-hover);
+                }
+
+                &:focus-visible {
+                    color: light-dark(var(--neutral-0),var(--neutral-800));
+                    background-color: var(--primary-400);
+                    box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-base);
+                }
+
+                &:focus-visible:hover {
+                    box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-base);
+                }
+
+                &:active {
+                    color: light-dark(var(--neutral-0),var(--neutral-800));
+                    background-color: var(--primary-300);
+                    box-shadow: none;
+                }
+
+                &[loading] {
+                    color: light-dark(var(--neutral-0),var(--neutral-800));
+                    background-color: var(--primary-300);
+                    box-shadow: none;
+                }
+
+                &:disabled {
+                    color: var(--primary-400);
+                    background-color: var(--neutral-200);
+                    box-shadow: var(--box-shadow-sm-default);
+                    opacity: .5;
+                }
+            }
         }
     }
 

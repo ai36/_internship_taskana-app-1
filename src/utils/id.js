@@ -1,3 +1,3 @@
-export function createId () {
-    return crypto.randomUUID();
+export function createId() {
+  return crypto.randomUUID();
 }

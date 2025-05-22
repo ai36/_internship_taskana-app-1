@@ -15,3 +15,4 @@ export * from "./task-editor/TaskEditor";
 export * from "./task-item/TaskItem";
 export * from "./task-list/TaskList";
 export * from "./theme-switcher/ThemeSwitcher";
+export * from './dropdown/Dropdown.jsx';

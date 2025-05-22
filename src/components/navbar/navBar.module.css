@@ -6,8 +6,15 @@
 
     padding: var(--size-l) calc(var(--size-m) - 1px) var(--size-l) var(--size-m);
 
-    transition: var(--transition);
+    background-color: var(--neutral-100);
+    border-right: 1px solid;
+    border-color: var(--neutral-300);
 
-    background: var(--neutral-100);
-    border-right: 1px solid var(--neutral-300);
+    transition: background-color var(--transition-duration), border-color var(--transition-duration);
+
+    .linkList {
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-m);
+    }
 }

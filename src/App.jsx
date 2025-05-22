@@ -1,10 +1,14 @@
-import { AppLayout } from "@layouts";
-import { ThemeProvider } from "@contexts";
+import { AppLayout } from "@layouts/index";
+import { TaskEditorShownProvider, TasksProvider, ThemeProvider } from "@providers/index";
 
 export function App() {
-    return (
-        <ThemeProvider>
-            <AppLayout />
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider>
+      <TasksProvider>
+        <TaskEditorShownProvider>
+          <AppLayout />
+        </TaskEditorShownProvider>
+      </TasksProvider>
+    </ThemeProvider>
+  );
 }

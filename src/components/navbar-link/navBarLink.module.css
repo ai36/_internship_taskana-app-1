@@ -1,4 +1,6 @@
-.button {
+.link {
+    cursor: pointer;
+
     color: var(--neutral-0);
     background-color: var(--neutral-800);
     border-radius: var(--size-s);
@@ -8,31 +10,31 @@
     box-shadow: var(--box-shadow-base);
 
     transition: var(--transition);
-}
 
-.button:not(:last-child) {
-    margin-bottom: var(--size-ml);
-}
+    &:not(:last-child) {
+        margin-bottom: var(--size-ml);
+    }
 
-.button:hover {
-    color: var(--neutral-0);
-    background-color: var(--neutral-700);
-    fill: currentColor;
-    box-shadow: var(--box-shadow-hover);
-}
+    &:hover {
+        color: var(--neutral-0);
+        background-color: var(--neutral-700);
+        fill: currentColor;
+        box-shadow: var(--box-shadow-hover);
+    }
 
-.button:focus-visible {
-    background-color: var(--neutral-700);
-    outline: none;
-    box-shadow: 0 0 0 2px light-dark(var(--base-white), var(--neutral-0)), 0 0 0 4px var(--neutral-900), var(--box-shadow-hover);
-}
+    &:focus-visible {
+        background-color: var(--neutral-700);
+        outline: none;
+        box-shadow: 0 0 0 2px light-dark(var(--base-white), var(--neutral-0)), 0 0 0 4px var(--neutral-900), var(--box-shadow-hover);
+    }
 
-.label {
-    height: 24px;
+    .label {
+        height: 24px;
 
-    display: flex;
-    align-items: center;
-    gap: var(--size-s);
+        display: flex;
+        align-items: center;
+        gap: var(--size-s);
 
-    font: var(--body-md-sb);
+        font: var(--body-md-sb);
+    }
 }

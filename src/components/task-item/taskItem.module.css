@@ -2,93 +2,154 @@
     padding: var(--size-s);
     padding-left: var(--size-m);
     border-radius: var(--size-s);
-
+    
     color: var(--neutral-800);
     font: var(--body-lg-r);
+    
+    transition: color var(--transition-duration), box-shadow var(--transition-duration);
+    
+    .task {
+        display: grid;
+        grid-template-columns: var(--size-l) 1fr var(--size-xxl);
+        align-items: center;
+        gap: var(--size-m);
+        
+        
+        .text {
+            margin-block: var(--size-s);
+            padding: 0;
+            
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
 
-    transition: var(--transition);
+        & > svg {
+            width: auto;
+            height: var(--size-l);
+            color: var(--neutral-400);
+            margin: var(--size-s) 0 auto 0;
 
+            transition: color var(--transition-duration);
+            
+            &:hover {
+                color: var(--neutral-800);
+            }
+            
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: none;
+                color: var(--neutral-800);
+                box-shadow: 0 0 0 var(--size-xxs) var(--neutral-400), 0 0 0 var(--size-xxs) var(--neutral-400), 0 0 0 var(--size-xxs) var(--neutral-400), 0 0 0 var(--size-xxs) var(--neutral-400) inset;
+                border-radius: 5px;
+            }
+        }
+        
+        .editButton {
+            display: none;
+            height: var(--size-xxl);
+            aspect-ratio: 1;
+            padding: var(--size-s);
+            color: var(--neutral-600);
+            background-color: transparent;
+            box-shadow: none;
+            
+            &:not(:is([disabled], [loading])):hover {
+                color: var(--neutral-800);
+                background-color: var(--neutral-300);
+                box-shadow: var(--box-shadow-sm-hover);
+            }
+            
+            &:focus-visible:hover, 
+            &:focus-visible {
+                color: var(--neutral-800);
+                background-color: var(--neutral-300);
+                box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-sm), 0 0 0 var(--size-xs) var(--neutral-300) inset, 0 0 0 var(--size-xs) var(--neutral-300) inset;
+            }
+
+            &:active {
+                color: var(--neutral-600);
+                background-color: var(--neutral-100);
+                box-shadow: none;
+            }
+            
+            &[loading] {
+                color: var(--neutral-600);
+                background-color: var(--neutral-100);
+                box-shadow: none;
+                fill: currentColor;
+                pointer-events: none;
+            }
+            
+            &:disabled {
+                color: color-mix(in srbg, var(--neutral-600) 50%, transparent);
+                background-color: transparent;
+                cursor: not-allowed;
+            }
+        }
+        
+    }
+    
+    
+    &[data-priority="2"] {
+        .task {
+            & > svg {
+                color: var(--secondary-300);
+                
+                &:hover {
+                    color: var(--secondary-500);
+                }
+                
+                &:focus-visible {
+                    outline: none;
+                    color: var(--secondary-500);
+                    box-shadow: 0 0 0 var(--size-xxs) var(--secondary-100), 0 0 0 var(--size-xxs) var(--secondary-100), 0 0 0 var(--size-xxs) var(--secondary-100), 0 0 0 var(--size-xxs) var(--secondary-100) inset;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    
+    &[data-priority="3"] {
+        .task {
+            & > svg {
+                color: var(--primary-300);
+                
+                &:hover {
+                    color: var(--primary-500);
+                }
+
+                &:focus-visible {
+                    outline: none;
+                    color: var(--primary-500);
+                    box-shadow: 0 0 0 var(--size-xxs) var(--primary-100), 0 0 0 var(--size-xxs) var(--primary-100), 0 0 0 var(--size-xxs) var(--primary-100), 0 0 0 var(--size-xxs) var(--primary-100) inset;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    
+    &.isEdit,
+    &:focus-within,
+    &:has(:focus-visible),
     &:hover {
         background-color: var(--neutral-100);
         box-shadow: var(--box-shadow-sm);
+        
+        .editButton {
+            display: flex;
+        }
     }
 
     &:focus-visible {
         background-color: var(--neutral-100);
         outline: none;
         box-shadow: 0 0 0 2px var(--neutral-0), 0 0 0 4px var(--neutral-900), var(--box-shadow-sm);
-    }
-
-    .task {
-        display: grid;
-        grid-template-columns: var(--size-l) 1fr;
-        align-items: top;
-        gap: var(--size-m);
-        padding-block: var(--size-s);
-
-        .text {
-            margin: 0;
-            padding: 0;
-
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        &>svg {
-            height: var(--size-l);
-            aspect-ratio: 1;
-            color: var(--neutral-400);
-            transition: var(--transition);
-
-            &:hover {
-                color: var(--neutral-800);
-            }
-
-            &:focus-visible {
-                outline: none;
-                color: var(--neutral-800);
-                box-shadow: 0 0 0 var(--size-xs) var(--neutral-400);
-                border-radius: 5px;
-            }
-        }
-    }
-
-
-    &[data-priority="2"] {
-        .task {
-            &>svg {
-                color: var(--secondary-300);
-
-                &:hover {
-                    color: var(--secondary-500);
-                }
-
-                &:focus-visible {
-                    outline: none;
-                    color: var(--secondary-500);
-                    box-shadow: 0 0 0 var(--size-xs) var(--secondary-100);
-                    border-radius: 5px;
-                }
-            }
-        }
-    }
-
-    &[data-priority="3"] {
-        .task {
-            &>svg {
-                color: var(--primary-300);
-
-                &:hover {
-                    color: var(--primary-500);
-                }
-
-                &:focus-visible {
-                    outline: none;
-                    color: var(--primary-500);
-                    box-shadow: 0 0 0 var(--size-xs) var(--primary-100);
-                    border-radius: 5px;
-                }
-            }
+        
+        .editButton {
+            display: flex;
         }
     }
 }

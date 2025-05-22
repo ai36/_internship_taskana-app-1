@@ -21,6 +21,10 @@ npm i
 ```shell
 npm run dev
 ```
+or
+```shell
+vite
+```
 
 ## Run in production mode
 
@@ -43,6 +47,32 @@ We will use React and Vite for the initial build, and during the implementation 
 + Estimated time: 16 hours
 + Number of task: 4
 + Technology: React, JS, HTML, CSS
+
+### Task 4
+
+According to the [mockup](https://www.figma.com/design/4oVHHzlqzKTYPT5m7Wd1so/TaskanaApp.-1-sprint.-4-task?m=auto&t=2KE5TqJc1AxiAj8j-6), add a sorting component and extend the note creation block functionality.
+
+- Add a `Dropdown` component. It includes a button displaying the currently selected sorting option and a list of sorting options. By default, sorting is based on the creation date (`createdAt` field).
+- When the sorting button is clicked, a dropdown with sorting options appears. Clicking the button again toggles the dropdown closed.
+- When a sorting option is selected, the task list is sorted accordingly, and the dropdown closes. The button displays the current sorting selection.
+- If the dropdown content overflows the container vertically when open, it should be clipped. Responsiveness will be implemented later.
+- Implement open/close animation for the dropdown using opacity transition lasting 0.2s. Use a similar animation approach as in the `TaskEditor` from the previous assignment.
+- Implement all sorting options as shown in the [mockup](https://www.figma.com/design/4oVHHzlqzKTYPT5m7Wd1so/TaskanaApp.-1-sprint.-4-task?m=auto&t=2KE5TqJc1AxiAj8j-6).
+- On hover over a task, a button appears on the right to edit the task. Clicking this button slides in the task editing component from the right.
+- Extend the `TaskEditor` component so that, depending on the passed props, it can either create or edit tasks.
+- When editing a task, the Save button is only clickable and enabled if at least one field was modified and the input field is not empty—same logic as when creating a task.
+- Upon saving an edited task, its data in the task list updates accordingly. The `updatedAt` field is set to the current time. The `id` and `createdAt` fields remain unchanged. The editing window closes.
+- While editing, changes in the task list are applied only after a successful save.
+- If the Cancel button is clicked during editing, the editing window closes, and no changes are applied.
+- If a task is deleted, it is removed from the task list and no longer displayed. The editing window closes.
+- Implement `:hover` and `:focus` effects throughout the application as shown in the [mockup](https://www.figma.com/design/4oVHHzlqzKTYPT5m7Wd1so/TaskanaApp.-1-sprint.-4-task?m=auto&t=2KE5TqJc1AxiAj8j-6), and handle content overflow inside blocks.
+
+Important: The task editing component is the same as the one used for creating tasks. To extend the component, pass an additional prop like `type={‘edit’}` and an object with the task’s data.
+
+Clarification:
+- The “Create” button in the Header and the task editing feature are always available.
+  - Case 1 — While editing a task, clicking the “Create” button in the Header switches the `TaskEditor` to creation mode. All fields are cleared, and the appropriate title and buttons are shown.
+  - Case 2 — While creating a task, selecting a task from the list and clicking the edit button switches the `TaskEditor` to editing mode. All necessary fields are filled with the selected task’s data.
 
 
 ### Task 3

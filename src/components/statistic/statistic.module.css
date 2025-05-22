@@ -5,12 +5,12 @@
     align-items: center;
     gap: var(--size-l);
     min-height: 100%;
-}
 
-.desc {
-    text-align: center;
-    color: var(--neutral-800);
-    margin: 0;
-
-    transition: var(--transition);
+    .desc {
+        text-align: center;
+        color: var(--neutral-800);
+        margin: 0;
+        
+        transition: color var(--transition-duration);
+    }
 }

@@ -2,29 +2,35 @@
     width: 100%;
     height: calc(100dvh - 64px - 56px);
     overflow-y: auto;
-}
 
-.containter {
-    width: 100%;
-    max-width: 996px;
-    height: 100%;
-    margin: 0 auto;
-}
+    .container {
+        width: 100%;
+        max-width: 996px;
+        margin: 0 auto;
+    
+        &:has([class*="emptyList"]) {
+            height: 100%;
+        }
+        
+        .wrap {
+            background-color: var(--neutral-0);
+            padding: var(--size-l);
+            padding-bottom: var(--size-ml);
+            position: sticky;
+            top: 0;
+            z-index: 1;
 
-.wrap {
-    background-color: var(--neutral-0);
-    padding: var(--size-l);
-    padding-bottom: var(--size-ml);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-
-    transition: var(--transition);
-}
-
-.title {
-    color: var(--neutral-800);
-    font: var(--font-heading-h1);
-
-    transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+        
+            transition: background-color var(--transition-duration);
+        
+            .title {
+                color: var(--neutral-800);
+                font: var(--font-heading-h1);
+            
+                transition: color var(--transition-duration);
+            }
+        }
+    }
 }
