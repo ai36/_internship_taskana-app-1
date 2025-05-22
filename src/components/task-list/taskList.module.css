@@ -1,21 +1,23 @@
 .emptyList {
     min-height: 455px;
-    height: calc(100% - 64px - 24px);
+    height: calc(100% - var(--size-xxxl) - var(--size-l));
     padding: var(--size-l);
     padding-top: var(--size-xs);
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: var(--size-xxl);
-
+    
     .text {
         color: light-dark(var(--neutral-800), var(--neutral-dark-800));
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: var(--size-m);
+
+        transition: var(--transition);
     }
 
     .title {
@@ -29,6 +31,10 @@
     .pic {
         display: block;
         clip-path: polygon(0 0, 100% 0, 100% 319px, 0% 319px);
+    }
+
+    &:has([class*="illustration"]) {
+        margin-top: var(--size-xxs);
     }
 }
 

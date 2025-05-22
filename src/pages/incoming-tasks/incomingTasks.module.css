@@ -5,5 +5,5 @@
 
     background-color: var(--neutral-0);
 
-    transition: var(--transition);
+    transition: background-color var(--transition-duration);
 }

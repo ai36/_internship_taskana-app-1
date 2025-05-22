@@ -14,6 +14,8 @@ h1,h2,h3,h4,h5,h6 {
 
 input, button {
     font: inherit;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 }
 
 button {
@@ -52,6 +54,3 @@ p {
     margin: 0;
 }
 
-:hover {
-    transition: .2s;
-}

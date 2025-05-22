@@ -1,0 +1,143 @@
+.dropdownBox {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    .dropdownTrigger {
+
+        .dropdownButton {
+            padding: var(--size-s);
+            padding-left: var(--size-sm);
+            background-color: var(--neutral-200);
+            color: var(--neutral-600);
+            box-shadow: var(--box-shadow-sm-default);
+
+            > [class*="label"] {
+                display: grid;
+                grid-template-columns: var(--size-l) 1fr var(--size-l);
+                gap: var(--size-s);
+
+                svg:last-child {
+                    transition: color var(--transition-duration), rotate var(--transition-duration), fill var(--transition-duration);
+                }
+            }
+
+            &:hover {
+                color: var(--neutral-800);
+                background-color: var(--neutral-300) !important;
+                box-shadow: var(--box-shadow-hover);
+            }
+
+            &:focus-visible {
+                color: var(--neutral-800);
+                background-color: var(--neutral-300);
+                box-shadow: 0 0 0 2px light-dark(var(--base-white), var(--neutral-0)), 0 0 0 4px var(--neutral-900), var(--box-shadow-hover);
+            }
+        }
+    }
+
+    .dropdownList {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transition: opacity var(--transition-duration), background-color var(--transition-duration), visibility var(--transition-duration);
+
+        position: absolute;
+        right: 0;
+        top: calc(100% + var(--size-s));
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-xs);
+        padding: var(--size-xs);
+        border-radius: var(--size-s);
+        box-shadow: var(--box-shadow-lg);
+        background-color: var(--neutral-0);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        &.closed {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .dropdownListHeader {
+            display: grid;
+            grid-template-columns: var(--size-l) 1fr;
+            align-items: center;
+            gap: var(--size-s);
+            padding: var(--size-s);
+            border-radius: var(--size-xs);
+            color: var(--neutral-800);
+            font: var(--body-md-b);
+            fill: currentColor;
+            cursor: default;
+            color: var(--neutral-800);
+
+            transition: color var(--transition-duration);
+        }
+
+        .label {
+            display: grid;
+            grid-template-columns: var(--size-l) 1fr var(--size-l);
+            align-items: center;
+            gap: var(--size-s);
+            padding: var(--size-s);
+            border-radius: var(--size-xs);
+            cursor: pointer;
+            color: var(--neutral-800);
+
+            transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
+
+            .desc {
+                white-space: nowrap;
+            }
+
+            &:has(:focus-visible) {
+                background-color: var(--neutral-200);
+                box-shadow: 0 0 0 2px light-dark(var(--base-white), var(--neutral-0)), 0 0 0 4px var(--neutral-900), var(--box-shadow-hover);
+            }
+
+            &:hover {
+                background-color: var(--neutral-200);
+            }
+
+
+            .radio {
+                scale: 0;
+                position: absolute;
+
+                ~ .check {
+                    fill: transparent;
+                }
+
+                &:checked ~ .check {
+                    fill: var(--neutral-800);
+                    
+                    transition: fill var(--transition-duration);
+                }
+            }
+        }
+    }
+}
+
+.dropdownShow {
+
+    svg:last-child {
+        rotate: 180deg;
+    }
+}

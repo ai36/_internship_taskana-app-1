@@ -1,5 +1,5 @@
-@import url(/src/assets/reset.css);
-@import url(/src/assets/variables.css);
+@import url("./reset.css");
+@import url("./variables.css");
 
 @font-face {
     font-family: 'Source Sans 3';
